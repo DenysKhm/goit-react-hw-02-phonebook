@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 export default class ContactItem extends React.Component {
     render() {
@@ -9,6 +10,7 @@ export default class ContactItem extends React.Component {
             <p className={css.contact}>{name}: {number}</p>
             <button 
             id={id}
+            className={css.deleteBtn}
             type="button"
             onClick={onDeleteContact}>
               Delete
@@ -17,3 +19,10 @@ export default class ContactItem extends React.Component {
         );
       }
 }
+
+ContactItem.propTypes = { 
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onDeleteContact: PropTypes.func.isRequired 
+};
